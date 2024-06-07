@@ -2,8 +2,21 @@ import logo from "./logo.svg";
 import "./App.css";
 import Timer from "./components/Timer";
 import Title from "./components/Title";
+import Coupon from "./components/Coupon";
+import { useState } from "react";
 
 function App() {
+  const [isPopupOpen, setIsPopupOpen] = useState(false);
+
+  const openPopup = () => {
+    setIsPopupOpen(true);
+  };
+
+  const closePopup = () => {
+    setIsPopupOpen(false);
+  };
+
+
   return (
     <div>
       <div className="relative bg-[#FFDDDD] w-screen h-screen flex flex-col justify-start items-center">
@@ -13,11 +26,11 @@ function App() {
         <div className="w-screen text-center pb-20 pt-5 z-20">
           <Title />
         </div>
-        
-        <Timer />
+        <Coupon closePopup={closePopup} isPopupOpen={isPopupOpen}/>
+        <Timer openPopup={openPopup}/>
       </div>
       <div className="relative bg-[#FFDDDD] w-screen h-screen flex flex-col justify-start items-center">
-       
+        
       </div>
     </div>
   );

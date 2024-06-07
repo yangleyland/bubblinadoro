@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useRef } from "react";
 
-const Timer = () => {
+const Timer = ({openPopup}) => {
   const [time, setTime] = useState(35 * 60); // 35 minutes in seconds
   const [isRunning, setIsRunning] = useState(false);
   const [message, setMessage] = useState("Hang on! You're almost there");
@@ -25,6 +25,7 @@ const Timer = () => {
     if (time === 0) {
       finishAudio.play();
       setIsRunning(false);
+      openPopup();
       setTime(35 * 60);
     }
   }, [time]);
