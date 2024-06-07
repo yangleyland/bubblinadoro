@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from "react";
 
 const Coupon = ({isPopupOpen,closePopup}) => {
-  const [isOpen, setIsOpen] = useState(true);
   const [prize, setPrize] = useState("");
 
 
@@ -11,22 +10,23 @@ const Coupon = ({isPopupOpen,closePopup}) => {
   }, []);
 
   const prizes = [
-    "Congratulations! This coupon can be redeemed for 20 seconds of pit-time\n**one time use only**",
-    "You get to give me RH!!!",
-    "Free Ice Cream",
-    "Free Pizza",
-    "Free Burger",
-    "Free Fries",
-    "Free Soda",
-    "Free Popcorn",
-    "Free Candy",
-    "Free Movie Ticket",
+    "Congratulations! This coupon can be redeemed for 20 seconds of pit-time\n**ONE TIME USE**",
+    "Good Work on finishing your Bubblina-Doro! As your reward, you get to give me RH!!!\n**REDEEMABLE ALWAYS**",
+    "I'm proud of you for getting through that work sesh...send this to bubblina and he will buy you a sweet treat reluctantly\n**REDEEMABLE ALWAYS**",
+    "Coupon for 1 forehead kiss\n**REDEEMABLE ALWAYS**",
+    "DDB PICTURE\n**REDEEMABLE ON DATE OF COUPON**",
+    "Jon and Vinny's Date Night\n**ONE TIME USE**",
+    "Head\n**ONE TIME USE**",
+    "Meal of your choice cooked by me\n**ONE TIME USE**",
+    "You get to choose what I do for an hour (within reason)\n**ONE TIME USE**",
+    "Pilates Class with me\n**ONE TIME USE**",
+    "Instagram story post of your choice (within reason)\n**ONE TIME USE**",
   ];
 
   return (
     <>
-     {true && <div className="fixed inset-0 bg-black bg-opacity-50 flex justify-center items-center z-20">
-        <div className="bg-[#FFEFEA] w-1/2 h-1/2 flex flex-col justify-center items-center p-6 rounded-md relative">
+     {isPopupOpen && <div className="fixed inset-0 bg-black bg-opacity-50 flex justify-center items-center z-20">
+        <div className="bg-[#FFEFEA] w-[700px] h-[400px] flex flex-col justify-center items-center p-6 rounded-md relative">
           <div className="relative w-full h-full">
             <img
               src="ticket.png"
@@ -35,6 +35,7 @@ const Coupon = ({isPopupOpen,closePopup}) => {
             />
             <div className="absolute w-7/12 h-8/12 top-0 bottom-0 right-20 flex flex-col justify-center items-center text-center text-white">
               <p className="mb-4 text-2xl text-gray-600">{prize}</p>
+              <p className=" text-1xl text-gray-400 text-left">Note: screenshot coupon to redeem</p>
             </div>
           </div>
           <button
