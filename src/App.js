@@ -5,7 +5,7 @@ import Title from "./components/Title";
 
 function App() {
   return (
-    <div >
+    <div>
       <div className="relative bg-[#FFDDDD] w-screen h-screen flex flex-col justify-start items-center">
         <img src="/cinnemon.png" className="absolute left-[100px] top-4 w-auto h-[116px] mt-10" alt="logo" />
         <img src="/skate.png" className="absolute right-[200px] top-[100px] w-auto h-[150px] mt-10" alt="logo" />
