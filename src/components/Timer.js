@@ -53,7 +53,7 @@ const Timer = () => {
       </p>
       <div className="w-full flex justify-center absolute bottom-12">
         <button
-          className="bg-[#E56C6C] hover:bg-[#BC5252] text-white font-bold text-3xl py-2 px-4 rounded w-[200px] h-[70px]"
+          className="bg-[#E56C6C] hover:bg-[#BC5252] max-sm:hover:bg-[#E56C6C] max-sm:active:bg-[#BC5252] text-white font-bold text-3xl py-2 px-4 rounded w-[200px] h-[70px]"
           onClick={changeTimer}
         >
           {isRunning ? "PAUSE" : "START"}

@@ -16,6 +16,9 @@ function App() {
         
         <Timer />
       </div>
+      <div className="relative bg-[#FFDDDD] w-screen h-screen flex flex-col justify-start items-center">
+       
+      </div>
     </div>
   );
 }
