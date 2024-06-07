@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useRef } from "react";
 
 const Timer = () => {
-  const [time, setTime] = useState(1); // 35 minutes in seconds
+  const [time, setTime] = useState(35 * 60); // 35 minutes in seconds
   const [isRunning, setIsRunning] = useState(false);
   const [message, setMessage] = useState("Hang on! You're almost there");
   let audio = new Audio("/start.mp3");
