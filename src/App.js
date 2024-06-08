@@ -4,8 +4,9 @@ import Timer from "./components/Timer";
 import Title from "./components/Title";
 import Coupon from "./components/Coupon";
 import { EmblaCarousel } from "./components/EmblaCarousel";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import Letter from "./components/Letter";
+import Lenis from "lenis";
 
 function App() {
   const [isPopupOpen, setIsPopupOpen] = useState(false);
@@ -17,6 +18,17 @@ function App() {
   const closePopup = () => {
     setIsPopupOpen(false);
   };
+
+  useEffect(() => {
+    const lenis = new Lenis();
+
+    function raf(time) {
+      lenis.raf(time);
+      requestAnimationFrame(raf);
+    }
+
+    requestAnimationFrame(raf);
+  }, []);
 
   return (
     <div>
@@ -44,8 +56,10 @@ function App() {
       </div>
       <div className="relative bg-[#FFDDDD] w-screen h-screen flex flex-col justify-start items-center">
         <div className="w-full h-1/5 flex items-center justify-center">
-        <h1 className="text-7xl max-sm:text-4xl text-white font-bold" style={{ textShadow: '1px 1px 4px rgba(255, 0, 0, 0.25)' }}>
-
+          <h1
+            className="text-7xl max-sm:text-4xl text-white font-bold"
+            style={{ textShadow: "1px 1px 4px rgba(255, 0, 0, 0.25)" }}
+          >
             Happy Birthday Eri!!
           </h1>
         </div>
