@@ -1,16 +1,24 @@
 import React, { useState, useEffect } from "react";
 import { IoMdSettings } from "react-icons/io";
 
-
 const Timer = ({ openPopup }) => {
   const [time, setTime] = useState(35 * 60); // 35 minutes in seconds
   const [isRunning, setIsRunning] = useState(false);
   const [message, setMessage] = useState("Get yo $$ up not yo funny up");
   const [isModalOpen, setIsModalOpen] = useState(false);
-  const [errorMessage,setErrorMessage]=useState("");
+  const [errorMessage, setErrorMessage] = useState("");
   const [inputValue, setInputValue] = useState(35); // Initial value in minutes
   let audio = new Audio("/start.mp3");
   let finishAudio = new Audio("/stop.mp3");
+
+  const formatTime = (timeInSeconds) => {
+    const minutes = Math.floor(timeInSeconds / 60);
+    const seconds = timeInSeconds % 60;
+
+    return `${minutes.toString().padStart(2, "0")}:${seconds
+      .toString()
+      .padStart(2, "0")}`;
+  };
 
   useEffect(() => {
     let intervalId;
@@ -35,19 +43,17 @@ const Timer = ({ openPopup }) => {
     }
   }, [time]);
 
+  useEffect(() => {
+    let title = formatTime(time) + " - Bubblina-doro";
+    document.title = title;
+  }, [time]);
+
   const changeTimer = () => {
     setIsRunning(!isRunning);
     audio.play();
   };
 
-  const formatTime = (timeInSeconds) => {
-    const minutes = Math.floor(timeInSeconds / 60);
-    const seconds = timeInSeconds % 60;
-
-    return `${minutes.toString().padStart(2, "0")}:${seconds
-      .toString()
-      .padStart(2, "0")}`;
-  };
+  
 
   const openModal = () => {
     setIsModalOpen(true);
@@ -58,17 +64,15 @@ const Timer = ({ openPopup }) => {
   };
 
   const handleTimeChange = () => {
-    if (inputValue>25){
+    if (inputValue >= 25) {
       setTime(inputValue * 60); // Convert minutes to seconds
-      
+
       closeModal();
       setErrorMessage("");
       setIsRunning(false);
-    }else{
+    } else {
       setErrorMessage("Let's up that time!");
     }
-    
-    
   };
 
   return (
@@ -99,7 +103,9 @@ const Timer = ({ openPopup }) => {
       {isModalOpen && (
         <div className="fixed inset-0 flex items-center justify-center bg-black z-20 bg-opacity-50">
           <div className="bg-white p-4 rounded-lg shadow-lg flex flex-col items-center">
-            <h2 className="text-xl font-bold mb-4">Set Timer Duration (minutes)</h2>
+            <h2 className="text-xl font-bold mb-4">
+              Set Timer Duration (minutes)
+            </h2>
             <input
               type="number"
               value={inputValue}
