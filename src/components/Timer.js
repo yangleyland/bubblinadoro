@@ -64,15 +64,15 @@ const Timer = ({ openPopup }) => {
   };
 
   const handleTimeChange = () => {
-    if (inputValue >= 25) {
+    // if (inputValue >= 25) {
       setTime(inputValue * 60); // Convert minutes to seconds
 
       closeModal();
       setErrorMessage("");
       setIsRunning(false);
-    } else {
-      setErrorMessage("Let's up that time!");
-    }
+    // } else {
+    //   setErrorMessage("Let's up that time!");
+    // }
   };
 
   return (
