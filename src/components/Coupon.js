@@ -7,16 +7,12 @@ const Coupon = ({isPopupOpen,closePopup}) => {
   useEffect(() => {
     const randomPrize = prizes[Math.floor(Math.random() * prizes.length)];
     setPrize(randomPrize);
-  }, []);
+  }, [isPopupOpen]);
 
   const prizes = [
     "Congratulations! This coupon can be redeemed for 20 seconds of pit-time\n**ONE TIME USE**",
-    "Good Work on finishing your Bubblina-Doro! As your reward, you get to give me RH!!!\n**REDEEMABLE ALWAYS**",
     "I'm proud of you for getting through that work sesh...send this to bubblina and he will buy you a sweet treat reluctantly\n**REDEEMABLE ALWAYS**",
     "Coupon for 1 forehead kiss\n**REDEEMABLE ALWAYS**",
-    "DDB PICTURE\n**REDEEMABLE ON DATE OF COUPON**",
-    "Jon and Vinny's Date Night\n**ONE TIME USE**",
-    "Head\n**ONE TIME USE**",
     "Meal of your choice cooked by me\n**ONE TIME USE**",
     "You get to choose what I do for an hour (within reason)\n**ONE TIME USE**",
     "Pilates Class with me\n**ONE TIME USE**",
